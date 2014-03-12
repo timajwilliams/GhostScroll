@@ -518,9 +518,7 @@ li {
 .fixed-nav {
     display: none;
     opacity: 1;
-    position: fixed;
-    top: 40px;
-    left: 2%;
+    background-color: #ffffff; 
     z-index: 99999;
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
@@ -528,14 +526,18 @@ li {
     line-height: 130%;
     font-weight: bold;
 }
-a.fn-item {
-    display: block;
-    cursor: pointer;
-    opacity: 0.7;
+
 }
 .white {
     color: white;
 }
+a.fn-item{
+	float:right;
+	margin:15px;
+	display: block;
+    cursor: pointer;
+}
+
 a.fn-item:hover {
     color: #9fd067;
 }
@@ -544,6 +546,145 @@ a.fn-item.active {
     opacity: 1;
 
 }
+
+/*Header Menu */
+
+.fixed-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #f6f6f6;
+	z-index: 10000;
+	height: 50px;
+	overflow: hidden;
+	-webkit-transition: height 0.3s;
+	-moz-transition: height 0.3s;
+	transition: height 0.3s;
+}
+
+.fixed-nav .inner {
+	width: 80%;
+
+	max-width: 69em;
+	margin: 0 auto;
+	padding: 0 1.875em;
+}
+
+.fixed-nav h1,
+.fixed-nav nav {
+	display: inline-block;
+	position: relative;
+}
+
+ /* We just have one-lined elements, so we'll center the elements with the line-height set to the height of the header */
+.fixed-nav h1,
+.fixed-nav inner nav a.fn-item{
+	margin: 5px;
+	line-height: 50px;
+}
+
+.fixed-nav h1 {
+	text-transform: uppercase;
+	color: #333;
+	letter-spacing: 4px;
+	font-size: 4em;
+	margin: 0;
+	float: left;
+}
+
+.fixed-nav nav {
+	float: right;
+}
+
+
+.fixed-nav inner nav a.fn-item{
+	color: #aaa;
+	font-weight: 700;
+	margin: 10px;
+	font-size: 1.4em;
+	margin:5px;
+}
+
+.fixed-nav nav a:hover {
+	color: #333;
+}
+
+/* Transitions and class for reduced height */
+.fixed-nav h1,
+.fixed-nav nav a {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.fixed-nav.fixed-nav-shrink {
+	height: 90px;
+}
+
+.fixed-nav.fixed-nav-shrink h1,
+.fixed-nav.fixed-nav-shrink nav a {
+	line-height: 90px;
+}
+
+.fixed-nav.fixed-nav-shrink h1 {
+	font-size: 2em;
+}
+
+/* Example Media Queries */
+@media screen and (max-width: 55em) {
+
+	.fixed-nav .inner {
+		width: 100%;
+	}
+
+	.fixed-nav h1,
+	.fixed-nav nav {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		float: none;
+	}
+
+	.fixed-nav h1,
+	.fixed-nav nav a {
+		line-height: 115px;
+	}
+
+	.fixed-nav nav a {
+		margin: 0 10px;
+	}
+
+	.fixed-nav.fixed-nav-shrink h1,
+	.fixed-nav.fixed-nav-shrink nav a {
+		line-height: 45px;
+	}
+
+	.fixed-nav.fixed-nav-shrink h1 {
+		font-size: 2em;
+	}
+
+	.fixed-nav.fixed-nav-shrink nav a {
+		font-size: 1em;
+	}
+}
+
+@media screen and (max-width: 32.25em) {
+	.fixed-nav nav a {
+		font-size: 1em;
+	}
+}
+
+@media screen and (max-width: 24em) {
+	.fixed-nav nav a,
+	.fixed-nav.fixed-nav-shrink nav a {
+		line-height: 1;
+	}
+}
+
+
+
+
 
 .post-after {
     position: absolute;
@@ -853,7 +994,7 @@ a.fn-item.active {
 
 /* CSS tooltip saying "Subscribe!" - initially hidden */
 .tooltip {
-    opacity:0;
+    opacity: 0;
     display: inline-block;
     padding: 4px 8px 5px 8px;
     position:absolute;
